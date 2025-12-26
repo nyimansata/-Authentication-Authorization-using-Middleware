@@ -4,7 +4,7 @@ const User = require("../mdels/user");
 
 const Register = async (req, res) => {
   try {
-    const hashedPassword = await bcrypt.hashedPassword(req.body.password, 10);
+    const hashedPassword = await bcrypt.hash(req.body.password, 10);
     const newUser = new User({
       username: req.body.username,
       password: hashedPassword,

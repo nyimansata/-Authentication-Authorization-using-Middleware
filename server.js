@@ -1,7 +1,7 @@
 require("dotenv").config();
 const express = require("express");
 const mongoose = require("mongoose");
-const articleRoute = require("./routes/articles");
+const roleRoute = require("./routes/roles");
 const authRoute = require("./routes/auth");
 
 const app = express();
@@ -10,7 +10,7 @@ const app = express();
 app.use(express.json());
 
 // routes
-app.use("/api/v1/articles", articleRoute);
+app.use("/api/v1/roles", roleRoute);
 app.use("/api/v1/auth", authRoute);
 
 // ejs
@@ -26,7 +26,7 @@ mongoose
   .connect(process.env.Database_URL, { dbName: "middleware" })
   .then(() => {
     console.log("database connected");
-    const port = process.env.PORT || 3000;
+    const port = process.env.PORT || 5000;
     app.listen(port, () => {
       console.log("Listenig to port: ", { port });
     });
