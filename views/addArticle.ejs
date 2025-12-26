@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin Page</title>
+    <link rel="stylesheet" href="/styles/addArticle.css" />
+  </head>
+
+  <body>
+    <div class="container">
+      <h1>Admin Page</h1>
+      <form action="/articles" method="POST">
+        <div class="field">
+          <label>Username</label>
+          <input type="text" name="username" placeholder="Username" required />
+        </div>
+
+        <div class="field">
+          <label>Password</label>
+          <input
+            type="password"
+            name="password"
+            placeholder="Password"
+            required
+          />
+        </div>
+
+        <div class="field">
+          <label>Role</label>
+          <select name="role" required>
+            <option value="" disabled selected>Select Role</option>
+            <option value="admin">Admin</option>
+            <option value="manager">Manager</option>
+            <option value="user">User</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label>Additional Info</label>
+          <textarea
+            name="additionalInfo"
+            placeholder="Additional information..."
+          ></textarea>
+        </div>
+
+        <button type="submit">Add Article</button>
+      </form>
+    </div>
+  </body>
+</html>

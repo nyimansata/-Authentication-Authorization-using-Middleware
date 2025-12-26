@@ -1,0 +1,27 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background-color: burlywood;
+}
+
+h1 {
+  text-align: center;
+  margin-top: 5%;
+}
+.container {
+  display: grid;
+  gap: 20px;
+  padding: 30px;
+  justify-content: center;
+}
+
+.items {
+  border: 1px solid black;
+  padding: 10px;
+  border-radius: 10px;
+  border-color: white;
+}
+select {
+  padding: 10px;
+}

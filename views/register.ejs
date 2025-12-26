@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Register</title>
+    <link rel="stylesheet" href="/styles/register.css" />
+  </head>
+  <body>
+    <h1>Register</h1>
+    <form action="/api/v1/auth/register" method="POST">
+      <div class="field">
+        <label>Username</label>
+        <input type="text" name="username" placeholder="Username" required />
+      </div>
+
+      <div class="field">
+        <label>Password</label>
+        <input
+          type="password"
+          name="password"
+          placeholder="Password"
+          required
+        />
+      </div>
+
+      <div class="field">
+        <select id="role" name="role" required>
+          <option value="" disabled selected>Select Role</option>
+          <option value="admin">admin</option>
+          <option value="manager">manager</option>
+          <option value="user">user</option>
+        </select>
+      </div>
+
+      <div class="loginText">
+        <p>
+          Already have an account?
+          <a href="http://localhost:3000/login">Login</a>
+        </p>
+      </div>
+
+      <button type="submit">Register</button>
+    </form>
+  </body>
+</html>

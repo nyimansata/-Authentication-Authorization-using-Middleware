@@ -12,6 +12,10 @@ const Register = async (req, res) => {
     });
 
     await newUser.save();
+    console.log("User registered successfully", newUser);
+
+    //redirect after success
+    res.redirect("/login");
     res
       .status(201)
       .send({ message: `"User registered successfully" ${newUser} ` });
@@ -25,6 +29,17 @@ const Login = async (req, res) => {
     const loginUser = await User.findOne({
       username: req.body.username,
     });
+
+    if (loginUser && loginUser.role.toLowerCase() === "admin") {
+      return res.redirect("http://localhost:3000/addArticle");
+    }
+
+    if (
+      (loginUser && loginUser.role.toLowerCase() === "manager") ||
+      loginUser.role.toLowerCase() === "user"
+    ) {
+      return res.redirect("http://localhost:3000/articles");
+    }
 
     if (!loginUser) {
       return res.status(404).send({ message: "User not found" });
